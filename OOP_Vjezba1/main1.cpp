@@ -23,7 +23,7 @@ void findDuplicate(int* n_array, int array_len) {
 
 }
 
-int main1() {
+int main() {
 
 	int n = 0;
 
