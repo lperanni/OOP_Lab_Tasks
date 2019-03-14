@@ -9,123 +9,130 @@ typedef struct _Vector {
 	int capacity;
 	int* niz;
 
+	void vector_new(int n) {
+
+		this->size = 0;
+		this->capacity = n;
+		this->niz = new int[n];
+
+	}
+
+	int vector_size() {
+
+		return size;
+	}
+
+	void doubleVector() {
+
+		this->capacity = this->capacity * 2;
+
+		int* newArray = new int[this->capacity];
+	
+		for (int i = 0; i < this->size; i++) {
+			newArray[i] = this->niz[i];
+		}
+		
+		delete[] this->niz;
+
+		this->niz = 0;
+
+		this->niz = newArray;
+
+
+	}
+
+	void vector_delete() {
+
+		delete[] this->niz;
+		this->size = NULL;
+		this->capacity = NULL;
+		this->niz = 0;
+
+	}
+
+	void vector_push_back(int insert) {
+
+	
+		if (this->size == this->capacity) {
+			this->doubleVector();
+		}
+	
+
+		this->niz[size] = insert;
+		this->size++;
+	}
+
+	void vector_pop_back() {
+
+		this->niz[this->size - 1] = NULL;
+
+		this->size--;
+
+	}
+
+	int& vector_front() {
+
+		return this->niz[0];
+
+	}
+
+	int& vector_back() {
+
+		return this->niz[this->size - 1];
+
+	}
+
 }vector;
 
-//RADI
-int vector_size(vector example) {
-
-	int size = 0;
-	
-
-	while (example.niz[size] != NULL)
-	{
-		size++;
-	}
-
-	return size;
-}
-
-//RADI
-vector vector_new(int n) {
-
-	vector example;
-	
-	example.size = 0;
-	example.capacity = n;
-	example.niz = new int[n];
-
-	return example;
-}
-
-//RADI(VALJDA?)
-void vector_delete(vector* example) {
-
-	delete[] example->niz;
-	example->size = NULL;
-	example->capacity = NULL;
-
-	
-}
 
 
-//RADI
-void vector_push_back(vector &example, int insert) {
-
-	if (example.size == example.capacity) {
-		example.capacity *= 2;
-	}
-	for (int i = vector_size(example); i >= 0 ; i--) {
-		example.niz[i + 1] = example.niz[i];
-	}
-
-	example.niz[0] = insert;
-	example.size++;
-}			
-
-
-//RADI
-void vector_pop_back(vector &example) {
-
-	example.niz[example.size-1] = NULL;
-
-	example.size--;
-
-}
-
-
-//RADI
-int vector_front(vector &example) {
-
-	return example.niz[0];
-
-}
-
-
-//RADI
-int vector_back(vector &example) {
-
-	return example.niz[example.size - 1];
-
-}
 
 int main() {
 
-	vector primjer = vector_new(4);
+	vector primjer;
 
-	vector_push_back(primjer, 3);
-	vector_push_back(primjer, 7);
-	vector_push_back(primjer, 1);
-	vector_push_back(primjer, 7);
-	vector_push_back(primjer, 3);
-	vector_push_back(primjer, 2);
-	vector_push_back(primjer, 9);
+	primjer.vector_new(4);
 
+	primjer.vector_push_back(3);
+	primjer.vector_push_back(7);
+	primjer.vector_push_back(1);
+	primjer.vector_push_back(7);
+	primjer.vector_push_back(3);
+	primjer.vector_push_back(2);
+	primjer.vector_push_back(9);
+
+	
+	
+	
 	for (int i = 0; i < primjer.size; i++) {
 		cout << i << ". clan: " << primjer.niz[i] << endl;
 	}
+
 
 
 	cout << "\n\nSize: " << primjer.size << endl;
 
 	
-	cout << "Prvi clan: " << vector_front(primjer) << endl;
-	cout << "Zadnji clan: " << vector_back(primjer) << endl;
+	cout << "Prvi clan: " << primjer.vector_front() << endl;
+	cout << "Zadnji clan: " << primjer.vector_back() << endl;
 	
 	
 
 
-	vector_pop_back(primjer);
+	primjer.vector_pop_back();
 
 	for (int i = 0; i < primjer.size; i++) {
 		cout << i << ". clan: " << primjer.niz[i] << endl;
 	}
 
 	
-	cout << "Zadnji clan nakon popa: " << vector_back(primjer) << endl;
+	cout << "Zadnji clan nakon popa: " << primjer.vector_back() << endl;
 	
 
 
-	cout << "Size: " << vector_size(primjer) << endl;
+	cout << "Size: " << primjer.vector_size() << endl;
+	
+	
 
 	cout << "Kraj" << endl;
 

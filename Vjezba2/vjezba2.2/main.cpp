@@ -59,6 +59,9 @@ void separator(int* &niz, int n) {
 		niz[evenCounter + i] = oddArray[i];
 	}
 
+	delete[] oddArray;
+	delete[] evenArray;
+
 }
 
 int main() {
@@ -82,5 +85,7 @@ int main() {
 	cout << "\t\t\t####Niz nakon obrade####\n" << endl;
 
 	printArray(niz, array_n);
+
+	delete[] niz;
 
 }

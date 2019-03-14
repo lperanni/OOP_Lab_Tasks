@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba2.1", "Vjezba2\Vjezba2.vcxproj", "{E7E5F993-C1CA-46BE-9A08-0030F440BA5B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba2.1", "Vjezba2.1\Vjezba2.1.vcxproj", "{E7E5F993-C1CA-46BE-9A08-0030F440BA5B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba2.2", "vjezba2.2\vjezba2.2.vcxproj", "{A3BEC135-9D96-4962-BAF5-5D0B2499632B}"
 EndProject
