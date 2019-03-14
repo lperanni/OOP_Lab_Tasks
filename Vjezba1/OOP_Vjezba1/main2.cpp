@@ -268,7 +268,7 @@ void sortByTotal(vector<student> &razred) {
 
 }
 
-int main2() {
+int main() {
 
 	vector<student> razred;
 
