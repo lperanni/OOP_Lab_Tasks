@@ -14,7 +14,7 @@ typedef struct _Producent {
 
 }producent;
 
-void enterProducerInfo(vector<producent> producenti, int n) {
+void enterProducerInfo(vector<producent> &producenti, int n) {
 		
 	producent temp;
 
@@ -37,31 +37,54 @@ void enterProducerInfo(vector<producent> producenti, int n) {
 
 }
 
-producent findMostHits(vector<producent> producenti){
+int findHits(vector<producent> producenti, producent person) {
 
-	producent max;
-	int tempOccurrences = 0;
-	int maxOccurrences = 0;
+	int count = 0;
+	string name = person.name;
+
 
 	for (int i = 0; i < producenti.size(); i++) {
 
-		string temp = producenti[i].name;
-		for (int j = 0; j < producenti.size(); j++) {
-			if ((i != j) && (temp == producenti[j].name)) {
-				tempOccurrences++;
-			}
+		if (producenti[i].name == name) {
+
+			count++;
 		}
 
-		if (tempOccurrences > maxOccurrences) {
-			max = producenti[i];
-			maxOccurrences = tempOccurrences;
-			tempOccurrences = 0;
-			
+	}
+
+
+	return count;
+
+}
+
+vector<producent> findMostHits(vector<producent> producenti){
+
+	vector<producent> max;
+	int temp = 0;
+	producent tempMax;
+
+	for (int i = 0; i < producenti.size(); i++) {
+
+		if (findHits(producenti, producenti[i]) > temp) {
+			tempMax = producenti[i];
+			temp = findHits(producenti, tempMax);
+		}
+		
+	}
+
+	max.push_back(tempMax);
+
+	for (int i = 0; i < producenti.size(); i++) {
+
+		if (findHits(producenti, producenti[i]) == temp && producenti[i].name != tempMax.name) {
+			max.push_back(producenti[i]);
 		}
 	}
 
+
 	return max;
 }
+
 
 
 int main() {
@@ -76,8 +99,14 @@ int main() {
 
 	enterProducerInfo(producenti, choice);
 
-	producent max = findMostHits(producenti);
+	vector<producent> max = findMostHits(producenti);
 
-	cout << max.name << endl;
+
+	cout << "Najvise hitova" << endl;
+	for (int i = 0; i < max.size(); i++) {
+
+		cout << max[i].name << " - ";
+
+	}
 
 }
