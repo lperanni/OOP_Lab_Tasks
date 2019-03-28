@@ -7,8 +7,6 @@
 
 using namespace std;
 
-using namespace std;
-
 vector<int> loadVector(bool randOrNot, int a = 0, int b = 100, int n = 5) {
 
 	vector<int> returnVector;
