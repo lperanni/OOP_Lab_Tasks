@@ -11,14 +11,19 @@ class Target
 private:
 
 	Position lowerLeftPoint;
-	int width;
-	int height;
-	bool hit;			
+	double width;
+	double height;
+	bool hit = false;			
 
 public:
 
 	const void generateRandomTarget();
-
+	const double getWidth();
+	const double getHeight();
+	Position getPosition();
+	const bool isHit();
+	const void shot();
+	
 };
 
 

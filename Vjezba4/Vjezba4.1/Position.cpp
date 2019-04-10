@@ -4,30 +4,30 @@
 
 
 void Position::setParams(double length, double height, double width) {
-	this->height = height;
-	this->length = length;
-	this->width = width;
+	this->y = height;
+	this->x = length;
+	this->z = width;
 }
 
-void Position::setRandParams(int start, int end) {
+void Position::setRandParams(double start, double end) {
 
-	this->height = start + (std::rand() % (end - start + 1));
-	this->width = start + (std::rand() % (end - start + 1));
-	this->length = start + (std::rand() % (end - start + 1));
+	this->y = start + (std::rand() % (int)(end - start + 1));
+	this->z = start + (std::rand() % (int)(end - start + 1));
+	this->x = start + (std::rand() % (int)(end - start + 1));
 }
 
-double Position::getHeight() { return this->height; }
-double Position::getWidth() { return this->width; }
-double Position::getLength() { return this->length; }
+double Position::getHeight() { return this->y; }
+double Position::getWidth() { return this->z; }
+double Position::getLength() { return this->x; }
 
 double Position::calcDistance2d(Position b) {
 
-	return sqrt(pow(this->width - b.width, 2) + pow(this->length - b.length, 2));
+	return sqrt(pow(this->y - b.y, 2) + pow(this->x - b.x, 2));
 
 }
 
 double Position::calcDistance3d(Position b) {
 
-	return sqrt(pow(this->width - b.width, 2) + pow(this->length - b.length, 2) + pow(this->height - b.height, 2));
+	return sqrt(pow(this->z - b.z, 2) + pow(this->x - b.x, 2) + pow(this->y - b.y, 2));
 
 }

@@ -18,12 +18,12 @@
     <ClCompile Include="..\Vjezba4.1\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Vjezba4.1\Position.cpp">
+    <ClCompile Include="Position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Vjezba4.1\Position.h">
+    <ClInclude Include="Position.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,14 +10,17 @@ class Gun
 
 private:
 
-	int bullets;
-	const Position polozaj;
+	int bullets = 6;
+	Position polozaj;
 
 public:
 
 	const void shoot();
 	const void reload();
-
+	const void setPosition();
+	Position getPosition();
+	const int getBullets();
+	
 
 };
 

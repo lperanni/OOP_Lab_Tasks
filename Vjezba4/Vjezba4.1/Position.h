@@ -10,13 +10,13 @@ using namespace std;
 class Position
 {
 private:
-	double length;
-	double height;
-	double width;
+	double x;
+	double y;
+	double z;
 
 public:
 	void setParams(double length = 0, double height = 0, double width = 0);
-	void setRandParams(int start, int end);
+	void setRandParams(double start, double end);
 	double getHeight();
 	double getWidth();
 	double getLength();

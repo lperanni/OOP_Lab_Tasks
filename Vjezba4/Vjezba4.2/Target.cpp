@@ -10,6 +10,27 @@ const void Target::generateRandomTarget() {
 	this->height = 30;
 }
 
+const double Target::getWidth() {
+	return this->width;
+}
+const double Target::getHeight() {
+	return this->height;
+}
+Position Target::getPosition() {
+	return this->lowerLeftPoint;
+}
+const bool Target::isHit() {
+
+	return this->hit;
+
+}
+const void Target::shot() {
+
+	this->hit = true;
+
+}
+
+
 
 
 
