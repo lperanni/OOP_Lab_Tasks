@@ -22,7 +22,7 @@ public:
 	const double getHeight();
 	Position getPosition();
 	const bool isHit();
-	const void shot();
+	void shot();
 	
 };
 

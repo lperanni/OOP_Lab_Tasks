@@ -24,7 +24,7 @@ const bool Target::isHit() {
 	return this->hit;
 
 }
-const void Target::shot() {
+void Target::shot() {
 
 	this->hit = true;
 

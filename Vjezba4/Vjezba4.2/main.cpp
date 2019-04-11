@@ -56,7 +56,7 @@ int main() {
 
 	pucac.setPosition();
 
-	vector<Target> mete = initiate(30);
+	vector<Target> mete = initiate(40);
 
 	int hits = shootingRound(pucac, mete);
 
