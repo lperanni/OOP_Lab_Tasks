@@ -54,9 +54,10 @@ public:
 	~Food();
 	Food(const Food &toCopy);
 	void changeDailyReq();
-	void addConsumptionData(float amount, int month, int year);
-	bool checkIfIncreased(vector<monthlyCons> data);
-	void print(Food obj) const;
+	void addConsumptionData(float amount, int months, int years);
+	bool checkIfIncreased() const;	//Vraca true za povecanje i za smanjenje, a false za nedovoljnu promjenu
+	void print() const;
+	void showConsumption() const;
 
 
 

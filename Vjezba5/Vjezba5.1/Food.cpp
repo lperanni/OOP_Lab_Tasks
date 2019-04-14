@@ -47,11 +47,11 @@ Food::Food(string type, string name, float water, float protein, float fat, floa
 	date today;
 	time_t t = time(NULL);
 	tm* timePtr = localtime(&t);
-	today.fillDate(timePtr->tm_year, timePtr->tm_mon, timePtr->tm_mon);
+	today.fillDate(timePtr->tm_year + 1900, timePtr->tm_mon, timePtr->tm_mon);
 
 	this->consumption.resize(this->expirationDate.returnDiff(today) * 2);
 
-
+	cout << "Constructor called" << endl;
 
 }
 
@@ -83,11 +83,12 @@ void Food::changeDailyReq() {
 
 	int choice = 1;
 
+	cout << "#####" << this->name << "#####" << endl;
 	cout << "Lower or Raise daily food requirements. Use arrow keys to manipulate. Press q to exit!" << endl;
 
 	while ((choice != 0)) {
 
-		switch (getch())
+		switch (_getch())
 		{
 			case LEFT_ARROW :
 				this->dailyRequirement--;
@@ -112,76 +113,88 @@ void Food::changeDailyReq() {
 
 }
 
-void Food::addConsumptionData(float amount, int month, int year) {
+void Food::addConsumptionData(float amount, int months, int years) {
 
 	monthlyCons temp;
 	time_t t = time(NULL);
 	tm* timePtr = localtime(&t);
 
-	if (year == timePtr->tm_year) {
-		cout << "Unable to add data for current year" << endl;
+	if (years > timePtr->tm_year + 1900 ) {
+		cout << "Unable to add data for next year" << endl;
 	}
 	else {
 
-		for (int i = 0; i < consumption.size(); i++) {
-			if (consumption[i].monthly.year == year) {
-				if (consumption[i].monthly.month == month) {
-					cout << "Data already exists" << endl; 
+		for (unsigned int i = 0; i < consumption.size(); i++) {
+			if (this->consumption[i].monthly.year == years) {
+				if (this->consumption[i].monthly.month == months) {
+					cout << "Data already exists" << endl;
 					break;
 				}
 			}
 
-			temp.createData(amount, month, year);
+			temp.createData(amount, months, years);
 			consumption.push_back(temp);
-			
+
 		}
 
 	}
 
-
-
 }
+bool Food::checkIfIncreased() const{
 
-bool Food::checkIfIncreased(vector<monthlyCons> data) {
 
+		time_t t = time(NULL);
+		tm* timePtr = localtime(&t);
+		int currentYear = timePtr->tm_year + 1900;
 
-	time_t t = time(NULL);
-	tm* timePtr = localtime(&t);
-	int currentYear = timePtr->tm_year;
+		float currentAmount = 0, prevAmount = 0;
 
-	float currentAmount, prevAmount;
-
-	for (unsigned int i = 0; i < data.size(); i++) {
-		if (data[i].monthly.year == currentYear) {
-			currentAmount = data[i].consumption;
-		} else if(data[i].monthly.year == currentYear - 1){
-			prevAmount = data[i].consumption;
+		for (unsigned int i = 0; i < consumption.size(); i++) {
+			if (consumption[i].monthly.year == currentYear) {
+				currentAmount = consumption[i].consumption;
+			}
+			else if (consumption[i].monthly.year == currentYear - 1) {
+				prevAmount = consumption[i].consumption;
+				
+			}
 		}
+
+		cout << "Current: " << currentAmount << endl;
+		cout << "Prev: " << prevAmount << endl;
+
+		if (currentAmount > (prevAmount + (0.1 * prevAmount))) {
+			cout << "Povecanje za vise od 10%" << endl;
+			return true;
+		}
+		else if (currentAmount < (prevAmount - (0.1 * prevAmount))) {
+			cout << "Smanjenje za vise od 10%" << endl;
+			return true;
+		}
+
+		return false;
 	}
 
-	if (currentAmount > prevAmount + 0.1 * prevAmount ) {
-		cout << "Povecanje za vise od 10%" << endl;
-		return true;
-	}
-	else if (currentAmount < prevAmount - 0.1 * prevAmount) {
-		cout << "Smanjenje za vise od 10%" << endl;
-		return true;
-	}
+void Food::print() const {
 
-	return false;
+	date exp = this->expirationDate;
 
-}
 
-void Food::print(Food obj) const {
-
+	cout << endl;
 	cout << "Type - " << this->type << endl;
 	cout << "Name - " << this->name << endl;
 	cout << "Water - " << this->water << endl;
 	cout << "Protein - " << this->protein << endl;
 	cout << "Fat - " << this->fat << endl;
 	cout << "Carbs - " << this->carbs << endl;
-	cout << "Expiration date - " << this->expirationDate.dateString << endl;
+	cout << "Expiration date - " << exp.dateString() << endl;
 	cout << "Daily requirement - " << this->dailyRequirement << endl;
+	cout << endl;
+}
+
+void Food::showConsumption() const{
+	for (unsigned int i = 0; i < this->consumption.size(); i++) {
+		cout << "Year: " << consumption[i].monthly.year << "Month: " << consumption[i].monthly.month << " - " << consumption[i].consumption << endl;
+	}
 }
 
 
