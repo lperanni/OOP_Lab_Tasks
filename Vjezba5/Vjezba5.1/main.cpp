@@ -24,8 +24,6 @@ void editFood(vector<Food> &foods) {
 
 }
 
-
-
 int main() {
 
 
@@ -34,8 +32,6 @@ int main() {
 
 	vector<Food> foods;
 
-
-	
 
 	Food* apple = new Food("Fruit","Apple", 0.7, 0.2, 0.4, 0.1,expiration,2.5);
 	apple->addConsumptionData(54.5, 4, 2018);

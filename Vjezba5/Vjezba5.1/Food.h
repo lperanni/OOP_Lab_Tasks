@@ -14,11 +14,7 @@ typedef struct _Date {
 	int year;
 	int month;
 	int day;
-	string dateString() {
-
-		return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
-
-	}
+	string dateString();
 	int returnDiff(_Date other);
 	void fillDate(int year, int month, int day);
 
@@ -58,6 +54,12 @@ public:
 	bool checkIfIncreased() const;	//Vraca true za povecanje i za smanjenje, a false za nedovoljnu promjenu
 	void print() const;
 	void showConsumption() const;
+	string getName() {
+		return this->name;
+	}
+	void setName(string name) {
+		this->name = name;
+	}
 
 
 

@@ -25,6 +25,12 @@ void _Date::fillDate(int year, int month, int day) {
 	this->day = day;
 }
 
+string _Date::dateString() {
+
+	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+
+}
+
 void _Consumption_per_month::createData(float consumption, int month, int year) {
 
 	this->consumption = consumption;
@@ -84,7 +90,7 @@ void Food::changeDailyReq() {
 	int choice = 1;
 
 	cout << "#####" << this->name << "#####" << endl;
-	cout << "Lower or Raise daily food requirements. Use arrow keys to manipulate. Press q to exit!" << endl;
+	cout << "Lower or Raise daily food requirements. Use arrow keys to manipulate. Press q to save!" << endl;
 
 	while ((choice != 0)) {
 
@@ -163,11 +169,11 @@ bool Food::checkIfIncreased() const{
 		cout << "Prev: " << prevAmount << endl;
 
 		if (currentAmount > (prevAmount + (0.1 * prevAmount))) {
-			cout << "Povecanje za vise od 10%" << endl;
+			cout << endl << "Povecanje za vise od 10%" << endl;
 			return true;
 		}
 		else if (currentAmount < (prevAmount - (0.1 * prevAmount))) {
-			cout << "Smanjenje za vise od 10%" << endl;
+			cout << endl << "Smanjenje za vise od 10%" << endl;
 			return true;
 		}
 
