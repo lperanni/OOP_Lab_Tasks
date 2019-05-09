@@ -12,9 +12,10 @@ public:
 	float getSingleCons();
 	void setDishCons(float val);
 	float getDishCons();
+
 	friend ostream& operator<<(ostream& os, const Meaty& meaty);
 	friend istream& operator>>(istream& is, Meaty& meaty);
-	friend ostream& operator<<(ostream& os, const Meaty& meaty) {
+	friend ostream& operator<<(ostream& os, Meaty& meaty) {
 		os << "Naziv: " << meaty.getName() << endl;
 		os << "Potrosnja u Kg (Kao samostalno): " << meaty.singleConsumption << endl;
 		os << "Potrosnja u Kg (Kao dio jela): " << meaty.dishConsumption << endl;

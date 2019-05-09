@@ -13,7 +13,7 @@ public:
 	float getSideCons();
 	friend ostream& operator<<(ostream& os, const Vege& vege);
 	friend istream& operator>>(istream& is, Vege& vege);
-	friend ostream& operator<<(ostream& os, const Vege& vege) {
+	friend ostream& operator<<(ostream& os, Vege& vege) {
 		os << "Naziv: " << vege.getName() << endl;
 		os << "Potrosnja u Kg (Kao samostalno): " << vege.singleConsumption << endl;
 		os << "Potrosnja u Kg (Kao dio jela): " << vege.sideConsumption << endl;

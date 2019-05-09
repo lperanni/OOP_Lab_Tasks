@@ -27,9 +27,8 @@ int main() {
 	jela.push_back(broccoli);
 	jela.push_back(cupavac);
 
-	for (auto i = jela.begin(); i != jela.end(); i++)
-	{
-		cout << *i;
-	}
+
+	cout << jela[2];
+
 
 }

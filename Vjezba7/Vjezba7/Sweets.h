@@ -9,9 +9,10 @@ public:
 	Sweets(string type, string name, float water, float protein, float fat, float carbs, date expirationDate, float dailyRequirement, float singleConsumption);
 	void setSingleCons(float val);
 	float getSingleCons();
+	
 	friend ostream& operator<<(ostream& os, const Sweets& sweet);
 	friend istream& operator>>(istream& is, Sweets& sweet);
-	friend ostream& operator<<(ostream& os, const Sweets& sweet) {
+	friend ostream& operator<<(ostream& os,  Sweets& sweet) {
 		os << "Naziv: " << sweet.getName() << endl;
 		os << "Potrosnja u Kg (Kao samostalno): " << sweet.singleConsumption << endl;
 

@@ -14,7 +14,7 @@ public:
 	float getDishCons();
 	friend ostream& operator<<(ostream& os, const Dairy& dairy);
 	friend istream& operator>>(istream& is, Dairy& dairy);
-	friend ostream& operator<<(ostream& os, const Dairy& dairy) {
+	friend ostream& operator<<(ostream& os,  Dairy& dairy) {
 		os << "Naziv: " << dairy.getName() << endl;
 		os << "Potrosnja u Kg (Kao samostalno): " << dairy.singleConsumption << endl;
 		os << "Potrosnja u Kg (Kao dio jela): " << dairy.dishConsumption << endl;

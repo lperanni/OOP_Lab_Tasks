@@ -18,6 +18,8 @@ float Dairy::getDishCons() {
 }
 
 
+
+
 Dairy::Dairy(string type, string name, float water, float protein, float fat, float carbs, date expirationDate, float dailyRequirement, float singleConsumption, float dishConsumption) :
 	Food( type,  name,  water,  protein,  fat,  carbs,  expirationDate,  dailyRequirement) {
 
