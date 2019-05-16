@@ -3,9 +3,9 @@
 
 #include "VideoGame.h"
 
-using namespace std;
+using namespace OOP;
 
-class RPG : public VideoGame
+class RPG : virtual public VideoGame
 {
 public:
 	string type() override;

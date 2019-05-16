@@ -7,7 +7,11 @@ class Fallout4 : public RPG
 public:
 	
 
+	Fallout4();
+
 private:
+	
+
 
 };
 

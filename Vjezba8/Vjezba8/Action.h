@@ -3,10 +3,11 @@
 #include "VideoGame.h"
 
 
-using namespace std;
+using namespace OOP;
 
 
-class Action : public VideoGame
+
+class Action : virtual public VideoGame
 {
 public:
 	

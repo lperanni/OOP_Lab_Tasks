@@ -6,6 +6,8 @@ class DarkSouls : public RPG
 {
 public:
 
+	DarkSouls();
+
 
 private:
 

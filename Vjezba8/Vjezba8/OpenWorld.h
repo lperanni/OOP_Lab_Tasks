@@ -2,9 +2,9 @@
 #define OPENWORLD_H
 #include "VideoGame.h"
 
+using namespace OOP;
 
-
-class OpenWorld : public VideoGame
+class OpenWorld : virtual public VideoGame
 {
 public:
 	string type() override;

@@ -7,6 +7,8 @@ class Witcher : public OpenWorld, public RPG
 {
 public:
 	
+	Witcher();
+	string type() override;
 
 private:
 

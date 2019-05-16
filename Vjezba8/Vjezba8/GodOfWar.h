@@ -6,6 +6,7 @@ class GodOfWar : public Action
 {
 public:
 
+	GodOfWar();
 
 private:
 
