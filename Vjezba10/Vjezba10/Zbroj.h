@@ -2,30 +2,63 @@
 #define ZBROJ_H
 
 
+#include <iostream>
+#include <string>
+
+
+using namespace std;
 
 template <typename T>
-template < typename T > A <T >::A() : n(T()) {}
-template < typename T > void A <T >::set_data(T n) { this->n = n % 10; }
-template < typename T > T A <T >::get_data() const { return n; }
-template < typename T > void A <T >::print_data() { std::cout << n; }
 
-class zbroj
+
+class Zbroj
 {
 public:
-	
+	Zbroj(T val){
 
+		this->val = val;
+		cout << "Obicni konstruktor" << endl;
 
+	};
+	void add(Zbroj num) {
+		this->val += num.val;
+
+	}
+
+	T getVal() {
+		return this->val;
+	}
 
 private:
-
+	T val;
 
 };
 
-template <>
+template<>
 
+class Zbroj<char>
+{
+public:
+	Zbroj(char val) {
+
+		cout << "Neobicni konstruktor" << endl;
+		this->val = val;
+	}
+	void add(Zbroj other) {
 	
+		char temp = (this->val + other.val - 96);
+		this->val = temp;
+		
+	}
 
+	char getVal() {
+		return this->val;
+	}
 
+private:
+	char val;
+
+};
 
 
 
